@@ -1,0 +1,40 @@
+﻿@model OWINAuthentication.Models.LoginViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div>
+
+        @using (Html.BeginForm(new { returnUrl = ViewBag.ReturnUrl }))
+        {
+            @Html.AntiForgeryToken()
+
+            <fieldset>
+                <legend>Login</legend>
+
+                <p>
+                    @Html.LabelFor(l => l.Username)
+                    @Html.TextBoxFor(l => l.Username)
+                </p>
+
+                <p>
+                    @Html.LabelFor(l => l.Password)
+                    @Html.PasswordFor(l => l.Password)
+                </p>
+
+                <input type="submit" value="Enter" />
+            </fieldset>
+        }
+
+    </div>
+</body>
+</html>
